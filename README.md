@@ -40,3 +40,8 @@ Or with Docker Compose (reads `.env`, see `.env.example`):
 docker compose up -d --build
 docker compose down
 ```
+
+## Jenkins pipeline
+
+Job `Toktobaev_Nooruzbek_DevOps` (Pipeline script from SCM → `Jenkinsfile`, branch `main`).
+Stages: **Checkout → Build → Test → Docker Build → Docker Run**.
