@@ -1,0 +1,12 @@
+# Log files are generated at runtime and can be large - never commit them
+*.log
+
+# Local backups are machine-specific copies, not source code
+backup/
+
+# Environment file with local settings and secrets - commit .env.example instead
+.env
+
+# Python cache
+__pycache__/
+*.pyc
