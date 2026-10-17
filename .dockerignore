@@ -1,0 +1,13 @@
+# Do not send these to the Docker build context
+.git
+.gitignore
+.env
+*.log
+logs/
+backup/
+tests/
+docs/
+__pycache__/
+*.pyc
+Jenkinsfile
+docker-compose.yml

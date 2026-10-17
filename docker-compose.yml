@@ -1,0 +1,15 @@
+# Docker Compose for the DevOps student application
+# Values come from .env (if present); defaults after ":-" are used otherwise.
+services:
+  app:
+    build: .
+    image: toktobaev-nooruzbek-devops
+    container_name: toktobaev-nooruzbek-container
+    ports:
+      - "5000:5000"
+    environment:
+      STUDENT_NAME: ${STUDENT_NAME:-Nooruzbek}
+      STUDENT_SURNAME: ${STUDENT_SURNAME:-Toktobaev}
+      STUDENT_GROUP: ${STUDENT_GROUP:-IT-2 2313}
+      STUDENT_ID: ${STUDENT_ID:-38422}
+    restart: "no"
