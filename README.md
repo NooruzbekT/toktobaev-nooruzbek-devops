@@ -45,3 +45,14 @@ docker compose down
 
 Job `Toktobaev_Nooruzbek_DevOps` (Pipeline script from SCM → `Jenkinsfile`, branch `main`).
 Stages: **Checkout → Build → Test → Docker Build → Docker Run**.
+
+## Tests
+
+Unit tests use only the Python standard library (`unittest`):
+
+```bash
+python3 -m unittest discover -s tests -v
+```
+
+They check default values, overriding with environment variables, the `RUN_ONCE` mode
+and the HTTP response. Jenkins runs them in the **Test** stage.
