@@ -1,9 +1,5 @@
 #!/bin/bash
-# Prints student and system information.
-# Student: Nooruzbek Toktobaev, Group "IT-2 2313", ID 38422
 
-# Resolve the project directory relative to this script,
-# so the script works from any folder (and inside Jenkins workspace).
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_DIR="$(dirname "$SCRIPT_DIR")"
 INFO_FILE="$PROJECT_DIR/Toktobaev_Nooruzbek_info.txt"

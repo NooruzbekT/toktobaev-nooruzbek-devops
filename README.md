@@ -1,26 +1,20 @@
 # toktobaev-nooruzbek-devops
 
-Laboratory work 1 for the **DevOps** course: Linux → Git → GitHub → Docker → Jenkins.
+Lab 1 for the DevOps course: Linux, Git, GitHub, Docker and Jenkins.
 
-| | |
-|---|---|
-| Student | Nooruzbek Toktobaev |
-| Group | IT-2 2313 |
-| Student ID | 38422 |
+Student: Nooruzbek Toktobaev, group IT-2 2313, ID 38422
 
-## Project structure
+## Folders
 
-```
-toktobaev_nooruzbek/
-├── app/            # Python application (runs in Docker)
-├── scripts/        # Bash scripts (system information)
-├── config/         # Application configuration (app.conf)
-├── docs/           # Demo command lists
-├── logs/           # Runtime logs (*.log is ignored by Git)
-└── backup/         # Local backups (ignored by Git)
-```
+- `app` - Python app that runs in Docker
+- `scripts` - bash script with system info
+- `config` - app.conf
+- `docs` - commands I used in the video
+- `logs` - logs (not in git)
+- `backup` - local backups (not in git)
+- `tests` - unit tests
 
-## Run with Docker
+## Docker
 
 ```bash
 docker build -t toktobaev-nooruzbek-devops .
@@ -28,31 +22,26 @@ docker run -d -p 5000:5000 --name toktobaev-nooruzbek-container toktobaev-nooruz
 curl http://localhost:5000
 ```
 
-Override student data with environment variables (quotes are required for the group):
+With my data as environment variables (the group needs quotes because of the space):
 
 ```bash
 docker run -d -p 5000:5000 -e STUDENT_GROUP="IT-2 2313" --name toktobaev-nooruzbek-container toktobaev-nooruzbek-devops
 ```
 
-Or with Docker Compose (reads `.env`, see `.env.example`):
+Docker Compose (copy `.env.example` to `.env` first):
 
 ```bash
 docker compose up -d --build
 docker compose down
 ```
 
-## Jenkins pipeline
+## Jenkins
 
-Job `Toktobaev_Nooruzbek_DevOps` (Pipeline script from SCM → `Jenkinsfile`, branch `main`).
-Stages: **Checkout → Build → Test → Docker Build → Docker Run**.
+Job `Toktobaev_Nooruzbek_DevOps`, Pipeline script from SCM, branch `main`, file `Jenkinsfile`.
+Stages: Checkout, Build, Test, Docker Build, Docker Run.
 
 ## Tests
-
-Unit tests use only the Python standard library (`unittest`):
 
 ```bash
 python3 -m unittest discover -s tests -v
 ```
-
-They check default values, overriding with environment variables, the `RUN_ONCE` mode
-and the HTTP response. Jenkins runs them in the **Test** stage.

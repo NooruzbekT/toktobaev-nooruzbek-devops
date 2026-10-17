@@ -1,10 +1,3 @@
-#!/usr/bin/env python3
-"""DevOps student application.
-
-Prints student information taken from environment variables.
-RUN_ONCE=true  -> print and exit with code 0 (used by Jenkins).
-otherwise      -> also serve the same information over HTTP on APP_PORT (5000).
-"""
 import os
 import signal
 import sys
@@ -20,13 +13,11 @@ LINE = "=" * 32
 
 
 def get_student_info(env=None):
-    """Return student data from environment variables, falling back to defaults."""
     env = os.environ if env is None else env
     return {key: env.get(key, default) for key, default in DEFAULTS.items()}
 
 
 def render(info):
-    """Build the text block shown in the console and over HTTP."""
     return "\n".join([
         LINE,
         "DevOps Student Application",
@@ -64,7 +55,7 @@ def main():
         return 0
 
     port = int(os.environ.get("APP_PORT", "5000"))
-    signal.signal(signal.SIGTERM, stop)  # make `docker stop` fast and clean
+    signal.signal(signal.SIGTERM, stop)
     server = HTTPServer(("0.0.0.0", port), StudentHandler)
     print(f"HTTP server is listening on port {port}", flush=True)
     try:

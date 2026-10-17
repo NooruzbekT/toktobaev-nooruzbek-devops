@@ -1,4 +1,3 @@
-"""Unit tests for app/app.py (standard library unittest only)."""
 import contextlib
 import importlib.util
 import io

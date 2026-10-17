@@ -1,4 +1,3 @@
-# Do not send these to the Docker build context
 .git
 .gitignore
 .env

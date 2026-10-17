@@ -1,5 +1,3 @@
-# Docker Compose for the DevOps student application
-# Values come from .env (if present); defaults after ":-" are used otherwise.
 services:
   app:
     build: .

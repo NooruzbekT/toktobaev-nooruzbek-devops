@@ -1,5 +1,3 @@
-// CI/CD pipeline for the DevOps student application
-// Student: Nooruzbek Toktobaev, Group "IT-2 2313", ID 38422
 pipeline {
     agent any
 
