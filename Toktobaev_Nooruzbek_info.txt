@@ -1,0 +1,5 @@
+Name: Nooruzbek
+Surname: Toktobaev
+Group: IT-2 2313
+Student ID: 38422
+Course: DevOps
